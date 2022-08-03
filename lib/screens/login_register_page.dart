@@ -1,3 +1,5 @@
+import 'package:blood_donor_app/constant.dart';
+import 'package:blood_donor_app/utils/dimensions.dart';
 import 'package:blood_donor_app/widgets/app_name.dart';
 import 'package:blood_donor_app/widgets/logo.dart';
 import 'package:flutter/material.dart';
@@ -12,34 +14,35 @@ class LoginSignupPage extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: Padding(
-          padding: const EdgeInsets.only(top: 100),
+          padding: EdgeInsets.only(top: Dimensions.height100),
           child: Column(
               // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Logo(),
-                const SizedBox(height: 10),
+                SizedBox(height: Dimensions.height10),
                 const AppName(),
-                const SizedBox(height: 40),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 40),
+                SizedBox(height: Dimensions.height45),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: Dimensions.width40),
                   child: Text(
                     'You can donate for ones in need and request blood if you need',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(
+                        fontSize: Dimensions.font16, color: textColor),
                   ),
                 ),
-                const SizedBox(height: 150),
+                SizedBox(height: Dimensions.height130),
                 LongButton(
-                    borderColor: Colors.red,
+                    borderColor: buttonColor,
                     fillColor: Colors.white,
                     text: 'LOGIN',
-                    textColor: Colors.red,
+                    textColor: buttonColor,
                     onTap: () {
                       Navigator.pushNamed(context, '/login');
                     }),
-                const SizedBox(height: 15),
+                SizedBox(height: Dimensions.height15),
                 LongButton(
-                    borderColor: Colors.red,
-                    fillColor: Colors.red,
+                    borderColor: buttonColor,
+                    fillColor: buttonColor,
                     text: 'REGISTER',
                     textColor: Colors.white,
                     onTap: () {

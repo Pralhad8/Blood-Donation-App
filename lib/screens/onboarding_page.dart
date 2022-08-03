@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../constant.dart';
 import '../model/allinonboardscreen.dart';
+import '../utils/dimensions.dart';
 import 'login_register_page.dart';
 
 class OnboardScreen extends StatefulWidget {
@@ -32,7 +33,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.only(top: 150.0),
+        padding:  EdgeInsets.only(top: Dimensions.height130+20),
         child: Stack(
           children: [
             PageView.builder(
@@ -65,7 +66,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
             currentIndex < allinonboardlist.length - 1
                 ? Padding(
                     padding:
-                        const EdgeInsets.only(top: 650.0, left: 20, right: 20),
+                         EdgeInsets.only(top: Dimensions.height100*6+50, left: Dimensions.width20, right: Dimensions.width20),
                     child: Positioned(
                       bottom: MediaQuery.of(context).size.height * 0.2,
                       width: MediaQuery.of(context).size.width,
@@ -84,7 +85,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                             child: Text(
                               "Skip",
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: Dimensions.font18,
                                 color: titleColor,
                               ),
                             ),
@@ -98,7 +99,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                             child: Text(
                               "Next",
                               style:
-                                  TextStyle(fontSize: 18, color: textRedColor),
+                                  TextStyle( fontSize: Dimensions.font18, color: textRedColor),
                             ),
                           )
                         ],
@@ -107,7 +108,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                   )
                 : Padding(
                     padding:
-                        const EdgeInsets.only(top: 650.0, left: 20, right: 20),
+                         EdgeInsets.only(top: Dimensions.height100*6+50, left: Dimensions.width20, right: Dimensions.width20),
                     child: Positioned(
                       bottom: MediaQuery.of(context).size.height * 0.2,
                       width: MediaQuery.of(context).size.width,
@@ -126,7 +127,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                             child: Text(
                               "Skip",
                               style: TextStyle(
-                                fontSize: 18,
+                              fontSize: Dimensions.font18,
                                 color: titleColor,
                               ),
                             ),
@@ -147,7 +148,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                             child: Text(
                               "Next",
                               style:
-                                  TextStyle(fontSize: 18, color: textRedColor),
+                                  TextStyle( fontSize: Dimensions.font18, color: textRedColor),
                             ),
                           )
                         ],
@@ -181,8 +182,8 @@ class _OnboardScreenState extends State<OnboardScreen> {
   AnimatedContainer buildDot({int? index}) {
     return AnimatedContainer(
       duration: kAnimationDuration,
-      margin: const EdgeInsets.only(right: 5),
-      height: 6,
+      margin:  EdgeInsets.only(right: Dimensions.width5),
+      height: Dimensions.height5+1,
       width: currentIndex == index ? 20 : 6,
       decoration: BoxDecoration(
         color: currentIndex == index ? buttonColor : smallcirlebuttonColor,
@@ -206,35 +207,35 @@ class PageBuilderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 15, right: 15),
+      padding:  EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 20),
+            margin:  EdgeInsets.only(top: Dimensions.height20),
             child: Image.asset(imgurl),
-            height: 200,
+            height: Dimensions.height200,
             width: double.infinity,
           ),
-          const SizedBox(
-            height: 20,
+           SizedBox(
+            height: Dimensions.height20,
           ),
           //Tite Text
           Text(title,
               style: TextStyle(
                   color: titleColor,
-                  fontSize: 24,
+                  fontSize: Dimensions.font26-2,
                   fontWeight: FontWeight.w700)),
-          const SizedBox(
-            height: 20,
+           SizedBox(
+            height: Dimensions.height20,
           ),
           //discription
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 2),
+            padding:  EdgeInsets.symmetric(horizontal: Dimensions.width40, vertical: Dimensions.height3-1),
             child: Text(description,
                 style: TextStyle(
                   color: textColor,
-                  fontSize: 18,
+                  fontSize: Dimensions.font18,
                 )),
           )
         ],

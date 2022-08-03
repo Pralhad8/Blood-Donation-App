@@ -1,8 +1,10 @@
-import 'package:email_validator/email_validator.dart';
+import 'package:blood_donor_app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   final Widget icon;
+
   final String hintText;
   final bool boolValue;
   final dynamic inputType;
@@ -20,14 +22,13 @@ class TextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: Dimensions.width20),
       child: Container(
         decoration: const BoxDecoration(
           color: Color.fromARGB(255, 243, 235, 235),
         ),
         child: TextFormField(
-
-         validator: validator,
+          validator: validator,
           // validator: (value) {
           //   if (value != null && value.length < 7 ) {
           //     return 'enter min 7 char. ';
@@ -36,9 +37,9 @@ class TextFormFieldWidget extends StatelessWidget {
           //   }
           // },
 
-          
           obscureText: boolValue,
           keyboardType: inputType,
+          textInputAction: TextInputAction.next,
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.transparent),
@@ -48,9 +49,19 @@ class TextFormFieldWidget extends StatelessWidget {
               borderSide: const BorderSide(color: Color(0XFFF8F8F8)),
               borderRadius: BorderRadius.circular(5.5),
             ),
-            prefixIcon: icon,
+            prefixIcon: Container(
+                margin: EdgeInsets.only(right: 12, left: 5),
+                decoration: BoxDecoration(
+                  border: Border(right: BorderSide(color: Color(0XFFD6D6D6))),
+                ),
+                child: icon),
             hintText: hintText,
-            hintStyle: const TextStyle(color: Colors.black),
+            hintStyle:
+                // TextStyle(color: Colors.black, fontSize: Dimensions.font15),
+                GoogleFonts.poppins(
+              color: Colors.black,
+              fontSize: Dimensions.font14,
+            ),
             filled: true,
             fillColor: Colors.blue[50],
           ),

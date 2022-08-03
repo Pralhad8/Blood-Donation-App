@@ -40,6 +40,9 @@ dependencies:
   flutter_svg: ^1.1.1+1
   shared_preferences: ^2.0.15
   email_validator: ^2.1.2
+  rflutter_alert: ^2.0.4
+  get: ^4.6.5
+  google_fonts: ^3.0.1
 
 flutter_native_splash:
     background_image: assets/splash_screen.png

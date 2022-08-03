@@ -1,4 +1,5 @@
 import 'package:blood_donor_app/constant.dart';
+import 'package:blood_donor_app/utils/dimensions.dart';
 import 'package:blood_donor_app/widgets/app_name.dart';
 import 'package:blood_donor_app/widgets/logo.dart';
 import 'package:blood_donor_app/widgets/long_button.dart';
@@ -17,27 +18,27 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final formKey = GlobalKey<FormState>();
   String name = '';
-  String email = '';
-  String password = '';
-  String phoneNumber = '';
+  String city = '';
+  String hospital = '';
   String bloodGroup = '';
-  String location = '';
+  String mobileNumber = '';
+  String addANote = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Form(
           key: formKey,
           child: Padding(
-            padding: const EdgeInsets.only(top: 100),
+            padding: EdgeInsets.only(top: Dimensions.height80),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Logo(),
                 const AppName(),
-                const SizedBox(height: 50),
+                SizedBox(height: Dimensions.height45),
                 TextFormFieldWidget(
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -47,16 +48,18 @@ class _RegisterState extends State<Register> {
                     },
                     hintText: 'Full Name',
                     icon: Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: Dimensions.height12 + 2,
+                          vertical: Dimensions.width12),
                       child: SvgPicture.asset('assets/user.svg'),
                     ),
                     boolValue: false,
                     inputType: TextInputType.text),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: Dimensions.height15,
                 ),
                 TextFormFieldWidget(
-                   validator: (value) {
+                    validator: (value) {
                       if (value == null ||
                           value.isEmpty ||
                           !value.contains('@') ||
@@ -67,13 +70,15 @@ class _RegisterState extends State<Register> {
                     },
                     hintText: 'Email',
                     icon: Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: Dimensions.height12,
+                          vertical: Dimensions.width12),
                       child: SvgPicture.asset('assets/mail.svg'),
                     ),
                     boolValue: false,
                     inputType: TextInputType.emailAddress),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: Dimensions.height15,
                 ),
                 TextFormFieldWidget(
                     validator: (value) {
@@ -85,12 +90,14 @@ class _RegisterState extends State<Register> {
                     },
                     hintText: 'Password',
                     icon: Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: Dimensions.height12,
+                          vertical: Dimensions.width12),
                       child: SvgPicture.asset('assets/password.svg'),
                     ),
                     boolValue: true,
                     inputType: TextInputType.visiblePassword),
-                const SizedBox(height: 15),
+                SizedBox(height: Dimensions.height15),
                 TextFormFieldWidget(
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -100,13 +107,15 @@ class _RegisterState extends State<Register> {
                     },
                     hintText: 'Phone Number',
                     icon: Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: Dimensions.height12,
+                          vertical: Dimensions.width12),
                       child: SvgPicture.asset('assets/phone_user.svg'),
                     ),
-                    boolValue: true,
+                    boolValue: false,
                     inputType: TextInputType.number),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: Dimensions.height15,
                 ),
                 TextFormFieldWidget(
                     validator: (value) {
@@ -117,13 +126,15 @@ class _RegisterState extends State<Register> {
                     },
                     hintText: 'Blood Group',
                     icon: Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: Dimensions.height12,
+                          vertical: Dimensions.width12),
                       child: SvgPicture.asset('assets/blood_group.svg'),
                     ),
-                    boolValue: true,
+                    boolValue: false,
                     inputType: TextInputType.text),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: Dimensions.height15,
                 ),
                 TextFormFieldWidget(
                     validator: (value) {
@@ -134,12 +145,14 @@ class _RegisterState extends State<Register> {
                     },
                     hintText: 'Location',
                     icon: Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: Dimensions.height12,
+                          vertical: Dimensions.width12),
                       child: SvgPicture.asset('assets/location_user.svg'),
                     ),
-                    boolValue: true,
+                    boolValue: false,
                     inputType: TextInputType.text),
-                const SizedBox(height: 30),
+                SizedBox(height: Dimensions.height15),
                 LongButton(
                     borderColor: borderColor,
                     fillColor: buttonColor,
@@ -152,13 +165,13 @@ class _RegisterState extends State<Register> {
                       }
                       // Navigator.pushNamed(context, '/home');
                     }),
-                const SizedBox(height: 20),
+                SizedBox(height: Dimensions.height20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Already have an account? ',
-                      style: TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: Dimensions.font16),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -169,7 +182,7 @@ class _RegisterState extends State<Register> {
                         style: TextStyle(
                             color: textRedColor,
                             fontWeight: FontWeight.bold,
-                            fontSize: 18),
+                            fontSize: Dimensions.font16),
                       ),
                     ),
                   ],

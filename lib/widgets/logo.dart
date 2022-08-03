@@ -1,5 +1,5 @@
+import 'package:blood_donor_app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
-
 
 class Logo extends StatelessWidget {
   const Logo({Key? key}) : super(key: key);
@@ -9,8 +9,8 @@ class Logo extends StatelessWidget {
     return SizedBox(
       // ignore: sort_child_properties_last
       child: Image.asset('assets/logocoloured.png'),
-      height: 100,
-      width: 100,
+      height: Dimensions.logoFontHeight100,
+      width: Dimensions.logoFontWeight100,
     );
   }
 }

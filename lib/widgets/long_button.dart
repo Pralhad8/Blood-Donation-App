@@ -1,3 +1,4 @@
+import 'package:blood_donor_app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class LongButton extends StatelessWidget {
@@ -17,9 +18,11 @@ class LongButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(
+        horizontal: MediaQuery.of(context).size.width * 0.05,
+      ),
       child: SizedBox(
-        height: 50.0,
+        height: MediaQuery.of(context).size.height * 0.07,
         child: GestureDetector(
           onTap: onTap,
           child: Container(
@@ -27,10 +30,10 @@ class LongButton extends StatelessWidget {
               border: Border.all(
                 color: borderColor,
                 style: BorderStyle.solid,
-                width: 3.0,
+                width: Dimensions.width3,
               ),
               color: fillColor,
-              borderRadius: BorderRadius.circular(30.0),
+              borderRadius: BorderRadius.circular(Dimensions.radius30),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -41,9 +44,8 @@ class LongButton extends StatelessWidget {
                     style: TextStyle(
                       color: textColor,
                       fontFamily: 'Montserrat',
-                      fontSize: 20,
+                      fontSize: Dimensions.font20,
                       fontWeight: FontWeight.w600,
-                      letterSpacing: 1,
                     ),
                   ),
                 )
